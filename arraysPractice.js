@@ -4,7 +4,7 @@
 var arr = [10,20,30];
 //Create a function named 'first' that is given 'arr' as the argument and  returns the first item in the given array.
 
-  //Code Here
+let first = (arr) => arr.shift()
 
 
 //Next problem
@@ -15,7 +15,7 @@ var arr = [40,50,60];
 //Create a function named 'last' that is given 'arr' as the argument and returns the last item in the given array.
 
 
-  //Code Here
+  let last = (arr) => arr.pop()
 
 
 //Next Problem
@@ -24,7 +24,9 @@ var arr = [40,50,60];
 var family = ['Tyler', 'Jordyn', 'Ryan', 'Chelsey', 'Ireland'];
 //Create a function named 'looper' that is given family as it's only argument, loops through the given array, and alerts every item in the array.
 
-  //Code Here
+let looper = (family) => family.forEach(function(member){
+  alert(member)
+}) 
 
 
 //Next problem
@@ -34,17 +36,28 @@ var family = ['Tyler', 'Jordyn', 'Ryan', 'Chelsey', 'Ireland'];
 var letters = ['A', 'B', 'C', 'D', 'E'];
 //Write a function called reversedLooper that is given letters as it's only argument and loops through the given array backwards alerting every item in the array starting at the end.
 
-  //Code Here
+function reversedLooper(letters){
+  for (var i = letters.length - 1; i >= 0; i--){
+    alert(letters[i])
+  }
+}
 
 
 //Next Problem
 
 
 var nums = [1,2,3,6,22,98,45,23,22,12];
+
 //Write a function named evenFinder that is given nums as it's only argument and removes all values that aren't even from the given array.
-
-  //Code Here
-
+function evenFinder(nums){
+  var arr = []
+  for (var i = 0; i < nums.length; i++) {
+    if (i % 2 !== 0) { // index is even
+      arr.push(nums[i]);
+    }
+  }
+  return arr
+}
 
 
 
@@ -72,7 +85,12 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 
 
 
-  //Code Here
+const divider = array => {
+  var odd = []
+  var even = []
+  array.map(x => x % 2 !== 0 ? odd.push(x) : even.push(x))
+  return [even, odd]
+}
 
 
 //Next Problem
@@ -81,14 +99,27 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 var getRandomArbitrary = function() {
   return Math.floor(Math.random() * 30);
 };
-// var numbers = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
+var numbers = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
 //Above you're given a function that will return a random number between 0 and 30.  There is also a commented out array full of numbers to help you visualize what your function will be receiving.
 
 // Your job is to write a function named finder that will get a random number (by invoking getRandomArbitrary), then loop through the array (that will be passed in as a parameter) to see if that random number is in the array. If it is, return true, if it's not, return false
 
-  //Code Here
+const finder = (arr) => {
+  var random = getRandomArbitrary() 
+  var compare = 0
+  var pair = arr.forEach(element => {
+    if (element == random) {
+      compare ++
+    }
+  });
+  if (compare > 0) {
+    return true
+  } else {
+    return false
+  }
+}
 
-
+finder(numbers)
 
 
 //Next Problem
